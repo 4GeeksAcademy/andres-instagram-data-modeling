@@ -4,6 +4,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.sql import func
+from eralchemy2 import render_er
 
 Base = declarative_base()
 
@@ -12,7 +13,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
-    profile_name = Column(String(50), nullable=False)user,
+    profile_name = Column(String(50), nullable=False)
     followers = relationship("Followers", foreign_keys="[Followers.followed_id]")
     followed = relationship("Followers", foreign_keys="[Followers.follower_id]")
 
